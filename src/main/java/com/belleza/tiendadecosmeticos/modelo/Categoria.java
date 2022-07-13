@@ -30,6 +30,7 @@ public class Categoria {
     @Column(name = "categoria_id")
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String nombre;
 
 

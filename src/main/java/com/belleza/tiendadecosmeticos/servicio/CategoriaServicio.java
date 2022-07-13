@@ -1,10 +1,10 @@
 package com.belleza.tiendadecosmeticos.servicio;
 
+import com.belleza.tiendadecosmeticos.dto.ResponseInfoDTO;
+import com.belleza.tiendadecosmeticos.exception.MyException;
 import com.belleza.tiendadecosmeticos.modelo.Categoria;
-import com.belleza.tiendadecosmeticos.modelo.Producto;
 import org.springframework.http.ResponseEntity;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface CategoriaServicio {
@@ -12,12 +12,12 @@ public interface CategoriaServicio {
     /*
      * Creacion de metodos a utilizar, en esta interface no va la logica.
      */
-    ResponseEntity<List<Categoria>> listarCategorias();
+    ResponseEntity<List<Categoria>> listarCategorias() throws Exception;
 
-    ResponseEntity<Categoria>  guardarCategorias(Categoria categoria);
+    ResponseEntity<Categoria>  guardarCategorias(Categoria categoria) throws Exception;
 
-    ResponseEntity<Categoria> eliminarCategoria(Long id);
+    ResponseEntity<ResponseInfoDTO> eliminarCategoria(Long id) throws MyException;
 
-    ResponseEntity<Collection<Producto>> listarProductoPorCategoria(Long id);
+    ResponseEntity<?> listarProductoPorCategoria(Long id) throws MyException;
 
 }
